@@ -137,6 +137,34 @@
             margin-top: 15px;
         }
 
+		.cover-author {
+			display: inline-flex;
+			align-items: center;
+			gap: 14px;
+			margin-bottom: 20px;
+			font-size: 0.95rem;
+			color: var(--text-light);
+			letter-spacing: 0.08em;
+		}
+
+		.cover-author span {
+			position: relative;
+			font-weight: 600;
+			padding-right: 34px;
+		}
+
+		.cover-author span::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			width: 24px;
+			height: 1px;
+			background: var(--accent);
+			transform: translateY(-50%);
+			opacity: 0.7;
+		}
+
         /* 2. Greeting (인사말) */
         .greeting-title {
             font-size: 1.3rem;
@@ -277,14 +305,16 @@
             <!-- 예: <img src="image.jpg" alt="대표 이미지" class="hero-img" /> -->
             <img src="./cover01.jpg" alt="책 출간회 대표 이미지" class="hero-img" />
             <div class="cover-text">
-                <h1 class="cover-title serif">책 출간회에 초대합니다</h1>
-                <div class="cover-names serif">
-                    이태흥, MI Ryu
-                </div>
-                <div class="cover-date">
-                    2026년 6월 10일 수요일 오후 6시<br>
-                    하림각 HW 컨벤션 센터
-                </div>
+                <h1 class="cover-title serif">Book Party Invitation</h1>
+
+				<div class="cover-author">
+					<span>저자</span>
+					이태흥 · 류은미
+				</div>
+
+				<div class="cover-names serif">
+					이태흥, MI Ryu
+				</div>
             </div>
         </section>
 
