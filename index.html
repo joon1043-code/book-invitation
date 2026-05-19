@@ -102,8 +102,9 @@
         .hero-slider {
 			position: relative;
 			width: 100%;
-			height: 60vh;
+			height: 60%;
 			overflow: hidden;
+			background: #e6dfd3;
 		}
 
 		.hero-img {
@@ -112,9 +113,45 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			object-position: center top;
 			opacity: 0;
 			animation: fadeSlide 24s infinite;
+		}
+
+		.slide1 {
+			object-position: center center;
+			animation-delay: 0s;
+		}
+
+		.slide2 {
+			object-position: center top;
+			animation-delay: 8s;
+		}
+
+		.slide3 {
+			object-position: center top;
+			animation-delay: 16s;
+		}
+
+		@keyframes fadeSlide {
+			0% {
+				opacity: 0;
+			}
+
+			8% {
+				opacity: 1;
+			}
+
+			30% {
+				opacity: 1;
+			}
+
+			38% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
 		}
 
         .cover-text {
@@ -302,38 +339,7 @@
 </head>
 
 <body>
-	<style>
-		.slide1 {
-			object-position: center center;
-		}
-
-		.slide2,
-		.slide3 {
-			object-position: center top;
-		}
-
-		@keyframes fadeSlide {
-			0% {
-				opacity: 0;
-			}
-
-			8% {
-				opacity: 1;
-			}
-
-			28% {
-				opacity: 1;
-			}
-
-			36% {
-				opacity: 0;
-			}
-
-			100% {
-				opacity: 0;
-			}
-		}
-	</style>
+	
     <div class="container">
         <!-- 1. Main Cover -->
         <section class="cover" id="cover">
