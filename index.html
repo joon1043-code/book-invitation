@@ -99,16 +99,22 @@
             border-bottom: none;
         }
 
-        .hero-img {
-            width: 100%;
-            height: 60%;
-            object-fit: cover;
-            background-color: #e6dfd3;
-            /* 이미지가 없을 때를 대비한 Placeholder */
-            background-image: url('https://via.placeholder.com/480x600/E6DFD3/8B7355?text=Image+Placeholder');
-            background-position: center;
-            background-size: cover;
-        }
+        .hero-slider {
+			position: relative;
+			width: 100%;
+			height: 60%;
+			overflow: hidden;
+		}
+
+		.hero-img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			opacity: 0;
+			animation: fadeSlide 18s infinite;
+		}
 
         .cover-text {
             padding: 40px 24px 0px 24px;
@@ -295,15 +301,52 @@
 </head>
 
 <body>
+	<style>
+		.slide1 {
+			animation-delay: 0s;
+		}
 
+		.slide2 {
+			animation-delay: 6s;
+		}
+
+		.slide3 {
+			animation-delay: 12s;
+		}
+
+		@keyframes fadeSlide {
+			0% {
+				opacity: 0;
+			}
+
+			8% {
+				opacity: 1;
+			}
+
+			28% {
+				opacity: 1;
+			}
+
+			36% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+	</style>
     <div class="container">
         <!-- 1. Main Cover -->
         <section class="cover" id="cover">
-            <!-- 이미지 교체 시 src 속성에 이미지 URL을 넣으면 됩니다. -->
-            <!-- 예: <img src="image.jpg" alt="대표 이미지" class="hero-img" /> -->
-            <img src="./cover01.jpg" alt="책 출간회 대표 이미지" class="hero-img" />
-            <div class="cover-text">
-                <h1 class="cover-title serif">
+			<div class="hero-slider">
+				<img src="./cover01.jpg" alt="" class="hero-img slide slide1">
+				<img src="./cover03.jpg" alt="" class="hero-img slide slide2">
+				<img src="./cover04.jpg" alt="" class="hero-img slide slide3">
+			</div>
+
+			<div class="cover-text">
+				<h1 class="cover-title serif">
 					Book Party Invitation
 				</h1>
 
@@ -314,8 +357,8 @@
 				<div class="cover-names serif">
 					이태흥 & Mi Ryu
 				</div>
-            </div>
-        </section>
+			</div>
+		</section>
 
         <!-- 2. Greeting -->
         <section class="greeting">
