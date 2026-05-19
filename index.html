@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책 출간회에 초대합니다</title>
+
+    <!-- Open Graph Tags (카카오톡 등 공유 시 미리보기) -->
+    <meta property="og:title" content="책 출간회에 초대합니다">
+    <meta property="og:description" content="2026년 6월 10일 수요일 오후 6시, 하림각 HW 컨벤션 센터">
+    <meta property="og:image" content="cover01.jpg">
+    <!-- 호스팅 후에는 절대 경로 URL(예: https://...)로 변경해야 카카오톡에서 정상적으로 보일 수 있습니다 -->
+    <meta property="og:url" content="https://your-invitation-url.com"> <!-- 나중에 실제 호스팅 URL로 교체하세요 -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            /* 아이보리/베이지 계열 배경 */
+            --text-main: #3e3a35;
+            /* 짙은 브라운/그레이 계열 텍스트 */
+            --text-light: #7a7369;
+            --accent: #b08d57;
+            /* 고급스러운 골드/브라운 포인트 */
+            --border: #e6dfd3;
+            --btn-bg: #8b7355;
+            /* 버튼 배경색 */
+            --btn-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #eaddcf;
+            /* 데스크탑에서 모바일 뷰 밖의 배경색 */
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            /* 모바일 폭에 맞춤 */
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            overflow-x: hidden;
+        }
+
+        /* 명조체 적용 클래스 */
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        /* 각 섹션 공통 스타일 & Fade-in 애니메이션 준비 */
+        section {
+            padding: 60px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        /* 1. Main Cover (첫 화면) */
+        .cover {
+            padding: 0;
+            position: relative;
+            height: 100vh;
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: none;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            background-color: #e6dfd3;
+            /* 이미지가 없을 때를 대비한 Placeholder */
+            background-image: url('https://via.placeholder.com/480x600/E6DFD3/8B7355?text=Image+Placeholder');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .cover-text {
+            padding: 40px 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .cover-names {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .cover-date {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-top: 15px;
+        }
+
+        /* 2. Greeting (인사말) */
+        .greeting-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .greeting-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-main);
+            word-break: keep-all;
+        }
+
+        /* 3. Info (행사 안내) */
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* 4. Location (오시는 길) */
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #e6dfd3;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Buttons (버튼 공통) */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #725d43;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--btn-bg);
+            border: 1px solid var(--btn-bg);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+        }
+
+        .btn-kakao {
+            background-color: #FEE500;
+            color: #000000;
+            border: none;
+            font-weight: 500;
+        }
+
+        .btn-kakao:hover {
+            background-color: #E5CF00;
+        }
+
+        /* 5. RSVP (참석 여부 전달) */
+        .rsvp-section {
+            background-color: #f6f2eb;
+            border-radius: 12px;
+            margin: 0 24px 60px;
+            padding: 40px 24px;
+            border: none;
+        }
+
+        /* 6. Share (공유하기) */
+        .share-section {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        .footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background-color: #f1ebd9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- 1. Main Cover -->
+        <section class="cover" id="cover">
+            <!-- 이미지 교체 시 src 속성에 이미지 URL을 넣으면 됩니다. -->
+            <!-- 예: <img src="image.jpg" alt="대표 이미지" class="hero-img" /> -->
+            <img src="./cover01.jpg" alt="책 출간회 대표 이미지" class="hero-img" />
+            <div class="cover-text">
+                <h1 class="cover-title serif">책 출간회에 초대합니다</h1>
+                <div class="cover-names serif">
+                    이태흥, MI Ryu
+                </div>
+                <div class="cover-date">
+                    2026년 6월 10일 수요일 오후 6시<br>
+                    하림각 HW 컨벤션 센터
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Greeting -->
+        <section class="greeting">
+            <h2 class="greeting-title serif">인사말</h2>
+            <div class="greeting-text">
+                오랜 시간 정성을 다해 준비한<br>
+                저희 부모님의 첫 책이 세상에 나옵니다.<br><br>
+                그동안 따뜻한 격려와 응원을 보내주신<br>
+                소중한 분들을 모시고<br>
+                작은 출간회를 열고자 합니다.<br><br>
+                바쁘시더라도 부디 참석하시어<br>
+                함께 축하해주시고<br>
+                기쁨을 나누어 주시면 감사하겠습니다.
+            </div>
+        </section>
+
+        <!-- 3. Info -->
+        <section class="info">
+            <h2 class="greeting-title serif">행사 안내</h2>
+            <div class="info-item">
+                <div class="info-label">일시</div>
+                <div class="info-value">2026년 6월 10일 (수) 오후 6시</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">장소</div>
+                <div class="info-value">하림각 HW 컨벤션 센터</div>
+            </div>
+        </section>
+
+        <!-- 4. Location -->
+        <section class="location">
+            <h2 class="greeting-title serif">오시는 길</h2>
+            <div class="info-value">하림각 HW 컨벤션 센터</div>
+            <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 5px;">
+                서울 종로구 자하문로 255
+            </div>
+
+            <!-- 지도 영역: 나중에 iframe 등 실제 지도로 교체할 수 있습니다. -->
+            <!--
+            <div class="map-placeholder">
+                [지도 영역]
+            </div>
+            -->
+
+            <div class="btn-group">
+                <!-- href 속성에 네이버 지도, 카카오맵 링크를 연결하세요. -->
+                <a href="https://naver.me/GbDF0idD" class="btn btn-outline" target="_blank">네이버 지도</a>
+                <a href="https://place.map.kakao.com/577192537" class="btn btn-outline" target="_blank">카카오맵</a>
+            </div>
+        </section>
+
+        <!-- 5. RSVP -->
+        <section class="rsvp-section">
+            <h2 class="greeting-title serif" style="margin-bottom: 15px;">참석 여부 전달</h2>
+            <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 25px; word-break: keep-all;">
+                원활한 행사 준비를 위해<br>참석 여부를 미리 알려주시면 감사하겠습니다.
+            </p>
+            <!-- href 속성에 구글 폼 링크를 연결하세요. -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_7Zhihd1X-abKwE3enbsQyj98kc8EQnp2lfTjd4DWiidLw/viewform?usp=dialog"
+                class="btn" target="_blank">참석 여부 전달하기</a>
+        </section>
+
+        <!-- 6. Share -->
+        <section class="share-section">
+            <h2 class="greeting-title serif" style="font-size: 1.1rem; margin-bottom: 20px;">초대장 공유하기</h2>
+            <div class="btn-group" style="flex-direction: column;">
+                <button class="btn btn-kakao" onclick="shareKakao()">카카오톡으로 공유하기</button>
+                <button class="btn btn-outline" onclick="copyLink()">링크 복사하기</button>
+            </div>
+        </section>
+
+        <div class="footer">
+            © 2026 Book Publishing Event
+        </div>
+    </div>
+
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+        integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJ5/Fbtbp0O+j4Z8//4M42b8M"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Fade-in 애니메이션
+        const sections = document.querySelectorAll('section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        sections.forEach(section => observer.observe(section));
+
+        // 카카오 SDK 초기화
+        Kakao.init('2f6d7bc0ef1e59af58a26944ddb98ecf');
+
+        // 카카오 공유
+        function shareKakao() {
+
+            Kakao.Share.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '책 출간회에 초대합니다',
+                    description: '2026년 6월 10일 수요일 오후 6시 · 하림각 HW 컨벤션 센터',
+
+                    // 배포 후 절대경로로 변경
+                    imageUrl: window.location.origin + '/cover01.jpg',
+
+                    link: {
+                        mobileWebUrl: window.location.href,
+                        webUrl: window.location.href
+                    }
+                },
+
+                buttons: [
+                    {
+                        title: '초대장 보기',
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href
+                        }
+                    }
+                ]
+            });
+        }
+
+
+        // 링크 복사 기능
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('초대장 링크가 복사되었습니다.');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('링크 복사에 실패했습니다.');
+            });
+        }
+    </script>
+</body>
+
+</html>
