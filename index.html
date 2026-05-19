@@ -302,33 +302,33 @@
         }
 
         .gallery-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 15px;
+		}
 
-        .gallery-card {
-            width: 50%;
-            height: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+		.gallery-card {
+			width: 100%;
+			aspect-ratio: 1 / 1;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+			opacity: 0;
+			transform: translateY(30px);
+			transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		}
 
-        .gallery-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+		.gallery-card.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
 
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+		.gallery-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
 
         /* 개별 이미지 포커싱 조절 클래스 */
         .img-pos-center { object-position: center; }
@@ -381,15 +381,24 @@
             <h2 class="greeting-title serif">Paris Moments</h2>
             <div class="gallery-subtitle">책이 시작된 여행의 순간들</div>
             <div class="gallery-container">
-                <div class="gallery-card">
-                    <img src="./cover03-optimized.jpg" alt="Paris Moment 2" class="gallery-img img-pos-center" loading="lazy">
-					<img src="./cover04-optimized.jpg" alt="Paris Moment 3" class="gallery-img img-pos-center" loading="lazy">
-                </div>
-                <div class="gallery-card">
-                    <img src="./cover03-optimized.jpg" alt="Paris Moment 2" class="gallery-img img-pos-center" loading="lazy">
-					<img src="./cover04-optimized.jpg" alt="Paris Moment 3" class="gallery-img img-pos-center" loading="lazy">
-                </div>
-            </div>
+
+				<div class="gallery-card">
+					<img src="./cover01.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				</div>
+
+				<div class="gallery-card">
+					<img src="./cover02-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				</div>
+
+				<div class="gallery-card">
+					<img src="./cover03-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				</div>
+
+				<div class="gallery-card">
+					<img src="./cover04-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				</div>
+
+			</div>
         </section>
         <script>
             // 갤러리 카드 개별 스크롤 효과
