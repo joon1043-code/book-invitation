@@ -351,34 +351,41 @@
         </div>
     </div>
 
-	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 	<script>
 		const inviteUrl = 'https://project-6fuih-r3uyoiali-joonki-lee-s-projects.vercel.app';
 		const imageUrl = inviteUrl + '/cover01.jpg';
 
-		const sections = document.querySelectorAll('section');
+		document.addEventListener('DOMContentLoaded', function () {
+			const sections = document.querySelectorAll('section');
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-				}
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			}, {
+				threshold: 0.15
 			});
-		}, {
-			threshold: 0.15
+
+			sections.forEach(section => observer.observe(section));
+
+			if (window.Kakao && !Kakao.isInitialized()) {
+				Kakao.init('2f6d7bc0ef1e59af58a26944ddb98ecf');
+				console.log('Kakao initialized:', Kakao.isInitialized());
+			}
 		});
 
-		sections.forEach(section => observer.observe(section));
-
-		if (window.Kakao && !Kakao.isInitialized()) {
-			Kakao.init('2f6d7bc0ef1e59af58a26944ddb98ecf');
-		}
-
 		function shareKakao() {
-			if (!window.Kakao || !Kakao.isInitialized()) {
-				alert('카카오톡 공유 기능을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.');
+			if (!window.Kakao) {
+				alert('카카오 SDK가 로드되지 않았습니다.');
 				return;
+			}
+
+			if (!Kakao.isInitialized()) {
+				Kakao.init('2f6d7bc0ef1e59af58a26944ddb98ecf');
 			}
 
 			Kakao.Share.sendDefault({
