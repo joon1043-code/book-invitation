@@ -99,60 +99,16 @@
             border-bottom: none;
         }
 
-        .hero-slider {
-			position: relative;
-			width: 100%;
-			height: 60%;
-			overflow: hidden;
-			background: #e6dfd3;
-		}
-
-		.hero-img {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			opacity: 0;
-			animation: fadeSlide 24s infinite;
-		}
-
-		.slide1 {
-			object-position: center center;
-			animation-delay: 0s;
-		}
-
-		.slide2 {
-			object-position: center top;
-			animation-delay: 8s;
-		}
-
-		.slide3 {
-			object-position: center top;
-			animation-delay: 16s;
-		}
-
-		@keyframes fadeSlide {
-			0% {
-				opacity: 0;
-			}
-
-			8% {
-				opacity: 1;
-			}
-
-			30% {
-				opacity: 1;
-			}
-
-			38% {
-				opacity: 0;
-			}
-
-			100% {
-				opacity: 0;
-			}
-		}
+        .hero-img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            background-color: #e6dfd3;
+            /* 이미지가 없을 때를 대비한 Placeholder */
+            background-image: url('https://via.placeholder.com/480x600/E6DFD3/8B7355?text=Image+Placeholder');
+            background-position: center;
+            background-size: cover;
+        }
 
         .cover-text {
             padding: 40px 24px 0px 24px;
@@ -339,18 +295,15 @@
 </head>
 
 <body>
-	
+
     <div class="container">
         <!-- 1. Main Cover -->
         <section class="cover" id="cover">
-			<div class="hero-slider">
-				<img src="./cover01.jpg" alt="" class="hero-img slide slide1">
-				<img src="./cover03.jpg" alt="" class="hero-img slide slide2">
-				<img src="./cover04.jpg" alt="" class="hero-img slide slide3">
-			</div>
-
-			<div class="cover-text">
-				<h1 class="cover-title serif">
+            <!-- 이미지 교체 시 src 속성에 이미지 URL을 넣으면 됩니다. -->
+            <!-- 예: <img src="image.jpg" alt="대표 이미지" class="hero-img" /> -->
+            <img src="./cover01.jpg" alt="책 출간회 대표 이미지" class="hero-img" />
+            <div class="cover-text">
+                <h1 class="cover-title serif">
 					Book Party Invitation
 				</h1>
 
@@ -361,8 +314,8 @@
 				<div class="cover-names serif">
 					이태흥 & Mi Ryu
 				</div>
-			</div>
-		</section>
+            </div>
+        </section>
 
         <!-- 2. Greeting -->
         <section class="greeting">
