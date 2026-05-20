@@ -293,23 +293,22 @@
         }
 
 		/* Gallery Section Start */
-        .gallery-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            font-family: 'Nanum Myeongjo', serif;
-        }
 
-        .gallery-container {
+		.gallery-subtitle {
+			font-size: 0.95rem;
+			color: var(--text-light);
+			margin-bottom: 30px;
+			letter-spacing: 1px;
+			font-family: 'Nanum Myeongjo', serif;
+		}
+
+		.gallery-container {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: 15px;
 		}
 
 		.gallery-card {
-			width: 100%;
-			aspect-ratio: 0 / 1;
 			border-radius: 12px;
 			overflow: hidden;
 			box-shadow: 0 4px 15px rgba(0,0,0,0.06);
@@ -330,11 +329,30 @@
 			display: block;
 		}
 
-        /* 개별 이미지 포커싱 조절 클래스 */
-        .img-pos-center { object-position: center; }
-        .img-pos-top { object-position: top; }
-        .img-pos-bottom { object-position: bottom; }
-        /* Gallery Section End */
+		/* 가로사진 */
+		.gallery-card.landscape {
+			grid-column: 1 / -1;
+			aspect-ratio: 16 / 9;
+		}
+
+		/* 세로사진 */
+		.gallery-card.portrait {
+			aspect-ratio: 3 / 4;
+		}
+
+		.img-pos-center {
+			object-position: center;
+		}
+
+		.img-pos-top {
+			object-position: top;
+		}
+
+		.img-pos-bottom {
+			object-position: bottom;
+		}
+
+		/* Gallery Section End */
     </style>
 </head>
 
@@ -378,28 +396,73 @@
 
 		<!-- Gallery Section Start -->
         <section class="gallery-section">
-            <h2 class="greeting-title serif">Paris Moments</h2>
-            <div class="gallery-subtitle">책이 시작된 여행의 순간들</div>
-            <div class="gallery-container">
 
-				<div class="gallery-card">
-					<img src="./cover03-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+			<h2 class="greeting-title serif">Paris Moments</h2>
+			<div class="gallery-subtitle">
+				책이 시작된 여행의 순간들
+			</div>
+
+			<div class="gallery-container">
+
+				<!-- 가로 -->
+				<div class="gallery-card landscape">
+					<img src="./cover03-optimized.jpg" class="gallery-img" loading="lazy">
 				</div>
 
-				<div class="gallery-card">
-					<img src="./cover04-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				<!-- 세로 -->
+				<div class="gallery-card portrait">
+					<img src="./cover09-optimized.jpg" class="gallery-img" loading="lazy">
 				</div>
 
-				<div class="gallery-card">
-					<img src="./cover03-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				<div class="gallery-card portrait">
+					<img src="./cover10-optimized.jpg" class="gallery-img" loading="lazy">
 				</div>
 
-				<div class="gallery-card">
-					<img src="./cover04-optimized.jpg" alt="" class="gallery-img img-pos-center" loading="lazy">
+				<!-- 가로 -->
+				<div class="gallery-card landscape">
+					<img src="./cover04-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<!-- 세로 -->
+				<div class="gallery-card portrait">
+					<img src="./cover11-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<div class="gallery-card portrait">
+					<img src="./cover12-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<!-- 가로 -->
+				<div class="gallery-card landscape">
+					<img src="./cover05-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<!-- 세로 -->
+				<div class="gallery-card portrait">
+					<img src="./cover13-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<div class="gallery-card portrait">
+					<img src="./cover14-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<!-- 가로 -->
+				<div class="gallery-card landscape">
+					<img src="./cover06-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<div class="gallery-card landscape">
+					<img src="./cover07-optimized.jpg" class="gallery-img" loading="lazy">
+				</div>
+
+				<div class="gallery-card landscape">
+					<img src="./cover08-optimized.jpg" class="gallery-img" loading="lazy">
 				</div>
 
 			</div>
-        </section>
+
+		</section>
+
         <script>
             // 갤러리 카드 개별 스크롤 효과
             const galleryCards = document.querySelectorAll('.gallery-card');
